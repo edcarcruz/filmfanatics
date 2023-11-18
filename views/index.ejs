@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Fanatics</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>Film Fanatics - Movie Reviews</h1>
+
+    <% if (movies.length> 0) %>
+        <% movies.forEach(movie=> { %>
+            <div class="movie">
+                <h2><a href="/movies/<%= movie._id %>">
+                        <%= movie.title %>
+                    </a></h2>
+                <p><strong>Genre:</strong>
+                    <%= movie.genre %>
+                </p>
+                <p><strong>Rating:</strong>
+                    <%= movie.rating %>
+                </p>
+                <p><strong>Comment:</strong>
+                    <%= movie.comment %>
+                </p>
+
+                <img src="<%= movie.img %>" alt="<%= movie.title %> Poster" class="poster">
+            </div>
+            <% }); %>
+
+                <!-- Add New Movie Button -->
+                <a href="/movies/new" class="add-new-button">Add New Movie</a>
+
+</body>
+
+</html>

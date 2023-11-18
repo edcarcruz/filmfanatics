@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: royalblue;
+  }
+  
+  .container {
+    width: 80%; /* Adjust the width as needed */
+    margin: auto;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+  
+  .movie {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .movie p {
+    margin: 5px 0;
+  }
+  
+  .reviews {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .review {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .review p {
+    margin: 5px 0;
+  }
+
+  img{
+    width : 200px
+  }

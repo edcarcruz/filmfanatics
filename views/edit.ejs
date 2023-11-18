@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit <%= movie.title %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: royalblue;
+      color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: royalblue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit <%= movie.title %></h1>
+
+    <!-- Movie Edit Form -->
+    <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
+      <!-- Title Input -->
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="<%= movie.title %>" required>
+
+      <!-- Genre Input -->
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" name="genre" value="<%= movie.genre %>" required>
+
+      <!-- Rating Input -->
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" name="rating" min="1" max="10" value="<%= movie.rating %>" required>
+
+      <!-- Comment Input -->
+      <label for="comment">Comment:</label>
+      <textarea id="comment" name="comment" rows="4"><%= movie.comment %></textarea>
+
+      <!-- Poster Input -->
+      <label for="img">Movie Poster URL:</label>
+      <input type="url" id="img" name="img" value="<%= movie.img %>" required>
+
+      <!-- Submit Button -->
+      <button type="submit">Update Movie</button>
+    </form>
+
+    <!-- Link to go back to the show page -->
+    <a href="/movies/<%= movie._id %>">Back to Movie Details</a>
+  </div>
+</body>
+</html>
