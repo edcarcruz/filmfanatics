@@ -1,52 +1,76 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 20px;
-    background-color: royalblue;
-  }
-  
-  .container {
-    width: 80%; /* Adjust the width as needed */
-    margin: auto;
-  }
-  
-  h1 {
-    color: #333;
-    text-align: center;
-  }
-  
-  .movie {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .movie h2 {
-    color: #007bff;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .movie p {
-    margin: 5px 0;
-  }
-  
-  .reviews {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .review {
-    border-top: 1px solid #ddd;
-    padding: 10px 0;
-  }
-  
-  .review p {
-    margin: 5px 0;
-  }
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  background-image: url(/images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: royalblue;
+}
 
-  img{
-    width : 200px
-  }
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+.movie {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  box-sizing: border-box;
+  margin: 10px auto; /* Center the movie horizontally within the container */
+}
+
+.movie h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.movie p {
+  margin: 5px 0;
+}
+
+.reviews {
+  list-style: none;
+  padding: 0;
+}
+
+.review {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.review p {
+  margin: 5px 0;
+}
+
+img {
+  width: 200px;
+}
+
+.add-new-button {
+  display: block;
+  width: 200px; /* Adjust the width as needed */
+  margin: 20px auto; /* Center the button horizontally */
+  text-align: center; /* Center the text within the button */
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.add-new-button:hover {
+  background-color: #0056b3;
+}
