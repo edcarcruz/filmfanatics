@@ -3,33 +3,35 @@ const router = express.Router();
 const Movie = require("../models/movie.js");
 
 const isAuthenticated = (req, res, next) => {
-  if(req.session.currentUser) {
-      return next()
+  if (req.session.currentUser) {
+      return next();
   } else {
-      res.redirect('/sessions/new')
+      res.redirect('/sessions/new'); // Redirect to login page if not authenticated
   }
-}
+};
 
 // Index route
 router.get("/", (req, res) => {
+  console.log('currentUser in /movies route:', req.session.currentUser);
   // Fetch movies and pass them to the view
   Movie.find({}, (error, movies) => {
     if (error) {
       return res.status(500).json({ error: error.message });
     }
-
     res.render("index.ejs", { movies: movies, currentUser: req.session.currentUser });
     
   });
 });
 
 // New route
-router.get("/new", (req, res) => {
-  res.render("new.ejs",);
+router.get("/new", isAuthenticated, (req, res) => {
+  res.render("new.ejs", {
+    currentUser: req.session.currentUser
+});
 });
 
 // Delete route
-router.delete("/:id", (req, res) => {
+router.delete("/:id", isAuthenticated, (req, res) => {
   Movie.findByIdAndRemove(req.params.id, (error, deletedEntity) => {
     if (error) {
       return res.status(500).json({ error: error.message });
@@ -42,7 +44,7 @@ router.delete("/:id", (req, res) => {
 });
 
 // Update route
-router.put("/:id", (req, res) => {
+router.put("/:id", isAuthenticated, (req, res) => {
   Movie.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -60,7 +62,7 @@ router.put("/:id", (req, res) => {
 });
 
 // Create route
-router.post("/", (req, res) => {
+router.post("/", isAuthenticated, (req, res) => {
   const { title, genre, rating, comment, img } = req.body;
 
   const newMovie = {
@@ -83,7 +85,7 @@ router.post("/", (req, res) => {
 
 // Edit route
 
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", isAuthenticated, (req, res) => {
   Movie.findById(req.params.id, (error, combinedEntity) => {
     if (error) {
       return res.status(500).json({ error: error.message });
@@ -93,6 +95,7 @@ router.get("/:id/edit", (req, res) => {
     }
     res.render("edit.ejs", {
       movie: combinedEntity,
+      currentUser: req.session.currentUser
     });
   });
 });

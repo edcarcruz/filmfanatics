@@ -9,6 +9,7 @@ const movieRoutes = require('./controller/movieRoutes.js');
 const userController = require('./controller/users.js')
 const sessionsController = require('./controller/sessions.js')
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 
 
 const app = express();
@@ -23,14 +24,13 @@ app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    secure: true
-  }
-
+  store: MongoStore.create({
+    mongoUrl: MONGOURI
+  }),
 }))
+app.use('/sessions', sessionsController)
 app.use('/movies', movieRoutes);
 app.use('/users', userController)
-app.use('/sessions', sessionsController)
 app.use(express.static("public"));
 
 
