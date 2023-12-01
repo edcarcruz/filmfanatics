@@ -26,3 +26,6 @@ Created here is an app where users can add their opinions on movies and see whet
 - Add the ability to like or dislike the reviews on a movie.
 - Include user login and sign up.
 - Add a comment section to each review.
+
+# Link to project
+[https://filmfanatics.onrender.com/](https://filmfanatics.onrender.com/)
