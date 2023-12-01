@@ -1,6 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const Movie = require("../models/movie.js"); // Adjust the import based on your file structure
+const Movie = require("../models/movie.js");
+
+const isAuthenticated = (req, res, next) => {
+  if(req.session.currentUser) {
+      return next()
+  } else {
+      res.redirect('/sessions/new')
+  }
+}
 
 // Index route
 router.get("/", (req, res) => {
@@ -10,13 +18,14 @@ router.get("/", (req, res) => {
       return res.status(500).json({ error: error.message });
     }
 
-    res.render("index.ejs", { movies });
+    res.render("index.ejs", { movies: movies, currentUser: req.session.currentUser });
+    
   });
 });
 
 // New route
 router.get("/new", (req, res) => {
-  res.render("new.ejs");
+  res.render("new.ejs",);
 });
 
 // Delete route
