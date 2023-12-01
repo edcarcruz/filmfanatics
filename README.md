@@ -8,6 +8,7 @@ Created here is an app where users can add their opinions on movies and see whet
 - MongoDB
 - Mongoose
 - CSS
+- Google Fonts
 
 # Wireframes
 ![Alt text](public/images/wireframe1.jpeg)
