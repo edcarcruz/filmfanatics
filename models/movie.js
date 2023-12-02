@@ -20,7 +20,6 @@ const movieSchema = new mongoose.Schema({
     default: 5,
   },
   comment: String,
-  // Add more fields as needed
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
